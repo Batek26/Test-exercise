@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zadanie Cognifide</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+    <header>
+        <div class="container-fluid">
+           <div class="head">
+               <center><h1 class="text-center text-transform">Bartłomiej Działo</h1></center>
+           </div>
+        </div>   
+    </header>
+    <aside>
+        <div class="area1">
+            <div class="area11">
+                <div class="container-fluid">   
+                    <ul class="list-unstyled list-class">
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>  
+    <section>
+        <div class="area2">
+            <div class="area11">
+                <div class="container-fluid">
+                   <h2><label id="Formularz">Formularz</label></h2><br>
+                   <form class="form-horizontal">
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-4 col-xs-9" for="phrase">Wpisz zdanie:</label>
+                            <div class="col-md-4 col-sm-5 col-xs-10">
+                                <input  class="form-control" id="phrase" placeholder="Wpisz zdanie"><br>
+                            </div>
+                            <div class="col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4">
+                                <button type="button" id="buton" class="but" onclick="Odw()">Odwróć</button>
+                            </div>
+                          </div>
+                    </form>
+                    <h3><label>Wynik:</label></h3>
+                        <p id="reverse"></p>
+                    <h3><label>Lista:</label></h3>
+                        <ul id="names">
+                            <li>Maria</li>
+                            <li>Łukasz</li>
+                            <li>Kamil</li>
+                            <li>Anna</li>
+                        </ul>
+                        <button type="button" class="but" onclick="sortList()">Sortuj</button>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <script>
+        
+    //Odwracanie------------------------------------------------------------------------------------
+    function Odw(){
+    
+    var x = document.getElementById("phrase");
+    var a = '';
+    var table1 = x.value.split(" ");
+    console.log(table1);
+    var y = table1.length;
+    console.log(y);
+    for(var i=0; i<y; i++){
+        var table = new Array(table1[i].length);
+        for(var j=0; j<table1[i].length; j++){
+            table[j] = table1[i].charAt(j);
+            console.log(table);
+        }
+        table.reverse();
+        table1[i] = table.join('');
+        console.log(table1);
+        
+    }
+        document.getElementById("reverse").innerHTML = table1.join(' ');
+    }
+    
+    //PrzyciskOdwróć--------------------------------------------------------------------------------    
+    document.getElementById("Formularz").addEventListener("mouseover", mouseOver);
+    document.getElementById("Formularz").addEventListener("mouseout", mouseOut);
+    function mouseOver() {
+    document.getElementById("buton").style.transition = "all 2s";
+    document.getElementById("buton").style.marginLeft = "200px";
+    document.getElementById("buton").innerHTML = "Animuję się";
+    }
+    function mouseOut() {
+    document.getElementById("buton").style.marginLeft = "0px";
+    document.getElementById("buton").innerHTML = "Odwróć";
+    }
+        
+    //Sortowanie-----------------------------------------------------------------------------------    
+    function sortList() {
+        var list, x, switching, b, shouldSwitch;
+        list = document.getElementById("names");
+        switching = true;
+        while (switching) {
+            switching = false;
+            b = list.getElementsByTagName("LI");
+            for (i = 0; i < (b.length - 1); i++) {
+            
+                shouldSwitch = false;
+                if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                    shouldSwitch= true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+            }
+        }
+    }
+    </script>
+    </body>
+</html>

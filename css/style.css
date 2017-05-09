@@ -1,0 +1,52 @@
+header{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #eee;
+    height: 200px;
+}
+.area1{
+    margin-left: 20px;
+}
+.area2{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.area11{
+    height: 500px;
+    width: 100%;
+    background-color: #eee;
+}
+aside{
+    width: 30%;
+    float: left;
+}
+section{
+    width: 70%;
+    float: left
+}
+.list-class{
+    margin-top: 10px;
+    padding: 0px;
+}
+.list-class li{    
+    display: block;
+    height: 40px;
+    border-bottom: 2px solid grey;
+    margin-top: 5px;
+}
+li:last-child{
+    border: none;
+}
+a{
+    text-decoration: underline;
+}
+.but{
+    width: 100px;
+    display: block;
+}
+.text-transform{
+    padding-top: 50px;
+    transform:rotate(-30deg); 
+    width: 300px;
+}
